@@ -1,8 +1,8 @@
 CUDless testing
 ===============
 
-Recipe for efficient testing with `pytest <http://docs.pytest.org>`_ for
-`flask-sqlalchemy <https://github.com/mitsuhiko/flask-sqlalchemy>`_ based
+Recipe for efficient testing with `pytest <http://pytest.org/>`_ for
+`flask-sqlalchemy <http://flask-sqlalchemy.pocoo.org/>`_ based
 applications.
 
 FAQ
