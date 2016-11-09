@@ -2,7 +2,7 @@ CUDless testing
 ===============
 
 Recipe for efficient testing with `pytest <http://docs.pytest.org>`_ for
-`flask_sqlalchemy <https://github.com/mitsuhiko/flask-sqlalchemy>`_ based
+`flask-sqlalchemy <https://github.com/mitsuhiko/flask-sqlalchemy>`_ based
 applications.
 
 FAQ
@@ -55,7 +55,7 @@ FAQ
 
   While SQLAlchemy's recipe works great, I think it's a bit inconvenient to bind
   a ``Session`` to a ``Connection`` which is already in a transactional state,
-  when using the ``flask_sqlalchemy`` library.
+  when using the ``flask-sqlalchemy`` library.
 
 * Why CUDless?
 
