@@ -35,11 +35,11 @@ FAQ
 
 * How do I use this for my own project?
 
-  The most important file is ``test/conftest.py``. This is where all the heavy
-  lifting is done. I suggest that you copy this file to your own ``test``
+  The most important file is ``tests/conftest.py``. This is where all the heavy
+  lifting is done. I suggest that you copy this file to your own ``tests``
   directory and then read through it and modify it as necessary.
 
-  ``test/test_example.py`` is an example of what your tests could look like.
+  ``tests/test_example.py`` is an example of what your tests could look like.
 
   ``cudless_testing/__init__.py`` is an example of what your application
   code could look like.
