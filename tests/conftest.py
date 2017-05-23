@@ -2,7 +2,6 @@ import sqlite3
 
 import pytest
 from sqlalchemy import event
-from flask_sqlalchemy import SignallingSession
 
 import cudless_testing
 from cudless_testing import app, sa
@@ -30,22 +29,16 @@ def setup():
         # Create nesting to prevent any commits/rollbacks within the DB
         # setup to apply onto our top level transaction.
         sa.session.begin_nested()
-        # TODO. Change SignallingSession to sa.session once
-        # https://github.com/mitsuhiko/flask-sqlalchemy/pull/364 is in a
-        # release.
         event.listen(
-            SignallingSession,
+            sa.session,
             'after_transaction_end',
             _get_restart_savepoint_func(2)
             )
 
         cudless_testing.init_db()
 
-        # TODO. Change SignallingSession to sa.session once
-        # https://github.com/mitsuhiko/flask-sqlalchemy/pull/364 is in a
-        # release.
         event.remove(
-            SignallingSession,
+            sa.session,
             'after_transaction_end',
             _get_restart_savepoint_func(2)
             )
@@ -66,22 +59,16 @@ def nest_for_test():
 
     # Nesting level 2 to handle any commits/rollbacks within a test.
     sa.session.begin_nested()
-    # TODO. Change SignallingSession to sa.session once
-    # https://github.com/mitsuhiko/flask-sqlalchemy/pull/364 is in a
-    # release.
     event.listen(
-        SignallingSession,
+        sa.session,
         'after_transaction_end',
         _get_restart_savepoint_func(3)
         )
 
     yield
 
-    # TODO. Change SignallingSession to sa.session once
-    # https://github.com/mitsuhiko/flask-sqlalchemy/pull/364 is in a
-    # release.
     event.remove(
-        SignallingSession,
+        sa.session,
         'after_transaction_end',
         _get_restart_savepoint_func(3)
         )
